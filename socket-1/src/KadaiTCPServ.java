@@ -36,7 +36,7 @@ public class KadaiTCPServ {
 
             ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
 
-            MyHalloweenGhost ghost = (MyHalloweenGhost) ois.readObject();// MyHalloweenGhostクラスでキャスト。
+            MyGhost ghost = (MyGhost) ois.readObject();// MyHalloweenGhostクラスでキャスト。
 
             ghost.printGhoastInfo();
             ghost.changeGhoastType("Friendly Ghost");
@@ -44,7 +44,7 @@ public class KadaiTCPServ {
 
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
 
-            MyHalloweenGhost response = new MyHalloweenGhost(
+            MyGhost response = new MyGhost(
                 ghost.getFrom(), 
                 ghost.getTo(), 
                 serverProcess(ghost.getGhostType())

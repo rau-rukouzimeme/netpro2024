@@ -26,14 +26,14 @@ public class KadaiTCPClient {
             String ghostType = scanner.next();
             scanner.close();
 
-            MyHalloweenGhost ghost = new MyHalloweenGhost(from, to, ghostType);
+            MyGhost ghost = new MyGhost(from, to, ghostType);
 
             oos.writeObject(ghost);
             oos.flush();
 
             ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
 
-            MyHalloweenGhost responseGhost = (MyHalloweenGhost) ois.readObject();
+            MyGhost responseGhost = (MyGhost) ois.readObject();
 
             responseGhost.printGhoastInfo();
 
